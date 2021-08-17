@@ -79,7 +79,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 		vector<string> line_vec = split(line, ' ');
 		if (line_vec[0] == "Event") {  // New event started
 			event += 1;
-			if (event > 1) { tr.Fill(); }  // Previous event should be recorded
+			if (event > 1) { tr.Fill(); cout << "refmult: " << refmult << endl; }  // Previous event should be recorded
 
 			// Clear variables for next event
 			qx = 0.; qy = 0.;
@@ -120,7 +120,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			// Refmult and event plane logic
 
 			// ref
-			if(fabs(eta) < ref_eta_max) refmult++;
+			if(fabs(eta) < ref_eta_max) refmult++; cout << "eta for refmult count: " << eta << endl;
 
 			// ref2
 			if(fabs(eta) > ref2_eta_min && fabs(eta) < ref2_eta_max && fabs((int)p_info->Charge()) == 3) refmult2++;
