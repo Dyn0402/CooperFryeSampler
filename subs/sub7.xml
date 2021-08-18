@@ -11,6 +11,13 @@
   <command>
       /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy;
   </command>
+  
+  <ResourceUsage>
+  	<Memory>
+  		<MinMemory>7000</MinMemory>
+  		<MaxMemory>9000</MaxMemory>
+  	</Memory>
+  </ResourceUsage>
 
   
   <SandBox>
