@@ -21,7 +21,6 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 	TParticlePDG *p_info = new TParticlePDG();
 
 	// Constants
-//	const float c = 2.9979e8
 	const int proton_pid = 2212;
 	float p_min = 0.1;  // STAR minimum momentum acceptance
 	float pt_min = 0.01;  // Issues arise in eta if pt is zero
@@ -74,8 +73,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 	infile.open(in_file_path);
 	string line;
 
-	while(getline(infile, line))
-	{// event loop
+	while(getline(infile, line)) {
 		vector<string> line_vec = split(line, ' ');
 		if (line_vec[0] == "Event") {  // New event started
 			event += 1;
