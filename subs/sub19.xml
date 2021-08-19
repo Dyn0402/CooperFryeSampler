@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE note [
-<!ENTITY energy "7">
-<!ENTITY hypersurface_energy "AuAu.7.7">
+<!ENTITY energy "19">
+<!ENTITY hypersurface_energy "AuAu.19.6">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
 <!ENTITY nevents "10000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/">
