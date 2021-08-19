@@ -95,10 +95,12 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			pz = stof(line_vec[4]);
 			mass = sqrt(p0*p0 - px*px - py*py - pz*pz);
 
-			px_vec.push_back(px);
-			py_vec.push_back(py);
-			pz_vec.push_back(pz);
-			pid_vec.push_back(pid);
+			if (pid == proton_pid) {  // Only record protons to save space.
+				px_vec.push_back(px);
+				py_vec.push_back(py);
+				pz_vec.push_back(pz);
+				pid_vec.push_back(pid);
+			}
 
 			p_info = db->GetParticle((int)pid);
 			if(!p_info) { cout << "pid: " << pid << " not in TDatabasePDG" << endl; continue; }
@@ -120,7 +122,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			// Refmult and event plane logic
 
 			// ref
-			if(fabs(eta) < ref_eta_max) refmult++;
+			if(fabs(eta) < ref_eta_max) { refmult++; }
 
 			// ref2
 			if(fabs(eta) > ref2_eta_min && fabs(eta) < ref2_eta_max && fabs((int)p_info->Charge()) == 3) refmult2++;
