@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE note [
-<!ENTITY energy "19">
-<!ENTITY hypersurface_energy "AuAu.19.6">
+<!ENTITY energy "27">
+<!ENTITY hypersurface_energy "AuAu.27">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
 <!ENTITY nevents "5000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/">
@@ -14,8 +14,8 @@
   
   <ResourceUsage>
   	<Memory>
-  		<MinMemory>10000</MinMemory>
-  		<MaxMemory>12000</MaxMemory>
+  		<MinMemory>11000</MinMemory>
+  		<MaxMemory>13000</MaxMemory>
   	</Memory>
   	<StorageSpace>
   		<MinStorage>1300</MinStorage>
