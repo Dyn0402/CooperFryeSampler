@@ -3,7 +3,7 @@
 <!ENTITY energy "19">
 <!ENTITY hypersurface_energy "AuAu.19.6">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
-<!ENTITY nevents "5000">
+<!ENTITY nevents "50000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/">
 ]>
 <job simulateSubmission="false" nProcesses="200">
@@ -18,8 +18,8 @@
   		<MaxMemory>12000</MaxMemory>
   	</Memory>
   	<StorageSpace>
-  		<MinStorage>1300</MinStorage>
-  		<MaxStorage>1600</MaxStorage>
+  		<MinStorage>12000</MinStorage>
+  		<MaxStorage>14000</MaxStorage>
   	</StorageSpace>
   </ResourceUsage>
 

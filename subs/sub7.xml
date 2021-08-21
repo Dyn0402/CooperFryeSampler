@@ -3,10 +3,10 @@
 <!ENTITY energy "7">
 <!ENTITY hypersurface_energy "AuAu.7.7">
 <!ENTITY hypersurface_name "surface_eps_0.26.dat">
-<!ENTITY nevents "10000">
+<!ENTITY nevents "50000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/">
 ]>
-<job simulateSubmission="false" nProcesses="100">
+<job simulateSubmission="false" nProcesses="200">
   
   <command>
       /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy;
@@ -18,8 +18,8 @@
   		<MaxMemory>9000</MaxMemory>
   	</Memory>
   	<StorageSpace>
-  		<MinStorage>1300</MinStorage>
-  		<MaxStorage>1600</MaxStorage>
+  		<MinStorage>6000</MinStorage>
+  		<MaxStorage>8000</MaxStorage>
   	</StorageSpace>
   </ResourceUsage>
 
