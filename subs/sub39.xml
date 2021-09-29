@@ -6,7 +6,7 @@
 <!ENTITY nevents "50000">
 <!ENTITY out_path "/gpfs01/star/pwg/dneff/data/CooperFrye/">
 ]>
-<job simulateSubmission="false" nProcesses="200">
+<job simulateSubmission="false" nProcesses="20">
   
   <command>
       /star/u/dneff/Software/python3/Python-3.7.3/python run_cfsampler.py &hypersurface_name; &nevents; &hypersurface_energy;

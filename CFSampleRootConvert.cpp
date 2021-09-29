@@ -93,7 +93,7 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			pz = stof(line_vec[4]);
 			mass = sqrt(p0*p0 - px*px - py*py - pz*pz);
 
-			if (pid == proton_pid) {  // Only record protons to save space.
+			if (fabs(pid) == proton_pid) {  // Only record protons to save space. --> Now record anti-protons as well
 				px_vec.push_back(px);
 				py_vec.push_back(py);
 				pz_vec.push_back(pz);
