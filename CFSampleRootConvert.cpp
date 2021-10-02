@@ -30,8 +30,12 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 	float ref2_eta_min = 0.5;
 	float ref2_eta_max = 1.0;
 	float ref3_eta_max = 1.0;
-	float eta_max = 1.0;
 	float mass_qa_percent = 1.0;  // % difference in mass to output warning
+
+	float eta_max = 1.0;  // Track selection max eta
+	float pt_max_cut = 2.2;  // Track selection max pt
+	float pt_min_cut = 0.3;  // Track selection min pt
+
 	int buffer_size = 5000000;
 	int split_level = 1;
 
@@ -93,13 +97,6 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			pz = stof(line_vec[4]);
 			mass = sqrt(p0*p0 - px*px - py*py - pz*pz);
 
-			if (fabs(pid) == proton_pid) {  // Only record protons to save space. --> Now record anti-protons as well
-				px_vec.push_back(px);
-				py_vec.push_back(py);
-				pz_vec.push_back(pz);
-				pid_vec.push_back(pid);
-			}
-
 			p_info = db->GetParticle((int)pid);
 			if(!p_info) { cout << "pid: " << pid << " not in TDatabasePDG" << endl; continue; }
 			else if(p_info->Mass() * 1+mass_qa_percent/100 < mass || p_info->Mass() * 1-mass_qa_percent/100 > mass) {
@@ -131,6 +128,14 @@ void CFSampleRootConvert(string in_file_path, string out_file_path) {
 			// event plane q-vector
 			if(pt > qvec_pt_min && pt < qvec_pt_max && fabs(eta) < ref3_eta_max) {
 				qx += cos(2*phi); qy += sin(2*phi);
+			}
+
+			// Record particle track if proton within STAR acceptance. Only record protons to save space. --> Now record anti-protons as well
+			if (fabs(pid) == proton_pid && eta <= eta_max && pt >= pt_cut_min && pt <= pt_cut_max) {
+				px_vec.push_back(px);
+				py_vec.push_back(py);
+				pz_vec.push_back(pz);
+				pid_vec.push_back(pid);
 			}
 		}
 	}// event loop end
